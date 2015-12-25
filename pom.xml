@@ -124,6 +124,12 @@
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- spring-test 추가. -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
