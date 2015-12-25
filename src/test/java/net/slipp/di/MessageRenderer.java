@@ -1,5 +1,8 @@
 package net.slipp.di;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 public class MessageRenderer {
 //di를 사용하는 방법
 	private MessageProvider messageProvider;
@@ -33,5 +36,8 @@ public class MessageRenderer {
 		MessageRenderer direnderer = new MessageRenderer();
 		direnderer.setMessageProvider(new HiWorldMessageProvider());
 		direnderer.dirender();
+		
+//		spring di 실습하기는 SpringDiMessageRendererClient.java 에서 main 메소드 실행하자.
+		
 	}
 }
