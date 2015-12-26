@@ -11,18 +11,19 @@ import net.slipp.dao.users.User;
 import net.slipp.dao.users.UserDao;
 
 @Controller
+@RequestMapping("/users")
 public class UserController {
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
 	@Autowired
 	private UserDao userDao;
 	
-	@RequestMapping("/users/form")
+	@RequestMapping("/form")
 	public String form() {
 		return "users/form";
 	}
 	
-	@RequestMapping(value="/users", method=RequestMethod.POST)
+	@RequestMapping(value="", method=RequestMethod.POST)
 	public String create(User user) {
 		logger.debug("User : {}", user);
 		userDao.create(user);
