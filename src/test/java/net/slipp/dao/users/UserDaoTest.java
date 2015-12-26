@@ -1,5 +1,7 @@
 package net.slipp.dao.users;
 
+
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -30,7 +32,9 @@ public class UserDaoTest {
 	public void create() throws Exception {
 		User user = new User("sanjigi", "password", "산지기", "sanjigi@gmail.com");
 		userDao.create(user);
-		User dbUser = userDao.findById(user.getUserId());
+		User actual = userDao.findById(user.getUserId());
+		
+		assertThat(actual, is(user));
 		
 	}
 
