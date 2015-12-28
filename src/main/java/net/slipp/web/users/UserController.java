@@ -2,6 +2,7 @@ package net.slipp.web.users;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -57,7 +58,8 @@ public class UserController {
 	}
 	
 	@RequestMapping("/login")
-	public String login(@Valid Authenticate authenticate, BindingResult bindingResult, Model model) {
+	public String login(@Valid Authenticate authenticate, BindingResult bindingResult, Model model
+			,HttpSession session) {
 		if (bindingResult.hasErrors()) {
 			return "users/login";
 		}
@@ -71,10 +73,19 @@ public class UserController {
 		
 		if (!user.getPassword().equals(authenticate.getPassword())) {
 			// 비밀번호가 다를 때.
-			
+			model.addAttribute("errorMessage", "비밀번호가 틀립니다.");
+			return "users/login";
 		}
-		// 세션에 사용자 정보가 저장되어 있을 때.
 		
-		return "users/login";
+		session.setAttribute("userId", user.getUserId());
+		
+		// 세션에 사용자 정보가 저장되어 있을 때.
+		return "redirect:/";
+	}
+	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("userId");
+		return "redirect:/";
 	}
 }
