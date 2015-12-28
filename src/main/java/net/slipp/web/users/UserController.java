@@ -49,4 +49,31 @@ public class UserController {
 		logger.debug("Database: {}", userDao.findById(user.getUserId()));
 		return "redirect:/";
 	}
+	
+	@RequestMapping("/login/form")
+	public String loginForm(Model model) {
+		model.addAttribute("authenticate", new Authenticate());
+		return "users/login";
+	}
+	
+	@RequestMapping("/login")
+	public String login(@Valid Authenticate authenticate, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			return "users/login";
+		}
+		
+		User user = userDao.findById(authenticate.getUserId());
+		if (user == null) {
+			//유저가 존재 하지 않을 때.
+			
+		}
+		
+		if (!user.getPassword().equals(authenticate.getPassword())) {
+			// 비밀번호가 다를 때.
+			
+		}
+		// 세션에 사용자 정보가 저장되어 있을 때.
+		
+		return "users/login";
+	}
 }
