@@ -139,7 +139,7 @@
 			<version>1</version>
 		</dependency>
 
-		<!-- Servlet -->
+		<!-- Servlet & jsp -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -157,6 +157,7 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+
 
 		<!-- Test -->
 		<dependency>

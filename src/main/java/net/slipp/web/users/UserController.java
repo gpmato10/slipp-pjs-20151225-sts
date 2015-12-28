@@ -57,7 +57,7 @@ public class UserController {
 	}
 	
 	@RequestMapping("/login")
-	public String login(@Valid Authenticate authenticate, BindingResult bindingResult) {
+	public String login(@Valid Authenticate authenticate, BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
 			return "users/login";
 		}
@@ -65,7 +65,8 @@ public class UserController {
 		User user = userDao.findById(authenticate.getUserId());
 		if (user == null) {
 			//유저가 존재 하지 않을 때.
-			
+			model.addAttribute("errorMessage", "존재하지 않는 사용자 입니다.");
+			return "users/login";
 		}
 		
 		if (!user.getPassword().equals(authenticate.getPassword())) {
