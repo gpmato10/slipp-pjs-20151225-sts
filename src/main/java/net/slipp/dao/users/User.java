@@ -5,6 +5,8 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import net.slipp.web.users.Authenticate;
+
 public class User {
 	@NotEmpty @Size(min=4, max=12)
 	private String userId;
@@ -60,7 +62,13 @@ public class User {
 		this.email = email;
 	}
 	
-	
+	public boolean matchPassword(Authenticate authenticate) {
+		if (this.password == null) {
+			return false;
+		}
+		
+		return this.password.equals(authenticate.getPassword());
+	}
 	
 	@Override
 	public int hashCode() {
