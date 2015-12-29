@@ -70,6 +70,14 @@ public class User {
 		return this.password.equals(authenticate.getPassword());
 	}
 	
+	public boolean matchUserId(String inputUserId) {
+		// TODO Auto-generated method stub
+		if (inputUserId == null) {
+			return false;
+		}
+		return inputUserId.equals(this.userId);
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

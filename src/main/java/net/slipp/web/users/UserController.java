@@ -102,7 +102,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="", method=RequestMethod.PUT)
-	public String update(@Valid User user, BindingResult bindingResult) {
+	public String update(@Valid User user, BindingResult bindingResult, HttpSession session) {
 		logger.debug("User : {}", user);
 		
 		if (bindingResult.hasErrors()) {
@@ -112,6 +112,16 @@ public class UserController {
 				logger.debug("error : {}, {} {}",error.getCode(), error.getDefaultMessage());
 			}
 			return "users/form";
+		}
+		
+		//		유저아이디가 존재하지 않을 경우 에러 처리 해야함..
+		Object temp = session.getAttribute("userId");
+		if (temp == null) {
+			throw new NullPointerException();
+		}
+		String userId = (String)temp;
+		if (!user.matchUserId(userId)) {
+			throw new NullPointerException();
 		}
 		
 		userDao.update(user);
