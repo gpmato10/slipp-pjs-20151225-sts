@@ -3,18 +3,21 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-  <environments default="development">
-    <environment id="development">
-      <transactionManager type="JDBC"/>
-      <dataSource type="POOLED">
-        <property name="driver" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost/pjs"/>
-        <property name="username" value="root"/>
-        <property name="password" value="123123"/>
-      </dataSource>
-    </environment>
-  </environments>
-  <mappers>
-    <mapper resource="net/slipp/dao/users/UserMapper.xml"/>
-  </mappers>
+	<typeAliases>
+		<typeAlias alias="User" type="net.slipp.dao.users.User" />
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://localhost/pjs" />
+				<property name="username" value="root" />
+				<property name="password" value="123123" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="net/slipp/dao/users/UserMapper.xml" />
+	</mappers>
 </configuration>
