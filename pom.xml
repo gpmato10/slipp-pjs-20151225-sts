@@ -82,6 +82,13 @@
 			<version>2.2.4</version>
 		</dependency>
 
+		<!-- 23강 mybatis 추가. -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.2.7</version>
+		</dependency>
+
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
