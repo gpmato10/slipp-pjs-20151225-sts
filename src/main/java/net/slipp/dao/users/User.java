@@ -2,11 +2,13 @@ package net.slipp.dao.users;
 
 import javax.validation.constraints.Size;
 
+import org.apache.ibatis.type.Alias;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import net.slipp.web.users.Authenticate;
 
+@Alias("user")
 public class User {
 	@NotEmpty @Size(min=4, max=12)
 	private String userId;
