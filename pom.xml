@@ -89,6 +89,13 @@
 			<version>3.2.7</version>
 		</dependency>
 
+		<!-- 아래꺼는 스프링 마이바티스 모듈이다. -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.2.3</version>
+		</dependency>
+
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
