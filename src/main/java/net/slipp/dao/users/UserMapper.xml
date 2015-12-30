@@ -12,4 +12,9 @@
 		insert into USERS 
 		values (#{userId},#{password},#{name},#{email})
 	</insert>
+	
+	<update id="update">
+		update USERS set 
+		password=${password}, name=#{name}, email=#{email} where userId=#{userId}
+	</update>
 </mapper>
