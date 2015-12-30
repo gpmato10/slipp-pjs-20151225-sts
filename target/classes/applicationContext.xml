@@ -13,11 +13,7 @@
 		p:driverClassName="${database.driverClassName}" p:url="${database.url}"
 		p:username="${database.username}" p:password="${database.password}" />
 
-<!--
-	<bean id="userDao" class="net.slipp.dao.users.JdbcUserDao"
-		p:dataSource-ref="dataSource" />
--->
-  
+
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
 		p:dataSource-ref="dataSource"
 		p:configLocation="classpath:mybatis-config.xml">
@@ -27,8 +23,7 @@
 	</bean>
 	
 	<bean id="userDao" class="net.slipp.dao.users.MyBatisUserDao"
-		p:sqlSession-ref="sqlSession"
-		p:dataSource-ref="dataSource" />
+		p:sqlSession-ref="sqlSession" />
 		
 		
 </beans>
