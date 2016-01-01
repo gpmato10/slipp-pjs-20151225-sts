@@ -8,6 +8,8 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 
+	<context:component-scan base-package="net.slipp.dao" />
+
 	<context:property-placeholder location="classpath*:application-properties.xml" />
 
 	<context:annotation-config /><!-- tomcat 에서 로그 찍으려면 필요함. -->
@@ -25,8 +27,7 @@
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
 	
-	<bean id="userDao" class="net.slipp.dao.users.MyBatisUserDao"
-		p:sqlSession-ref="sqlSession" />
+
 	
 	<bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" 
 		p:dataSource-ref="dataSource"
