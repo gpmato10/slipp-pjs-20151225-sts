@@ -17,7 +17,6 @@ public class Authenticate {
 	}
 
 	public Authenticate() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getUserId() {

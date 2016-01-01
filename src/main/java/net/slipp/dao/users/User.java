@@ -73,7 +73,6 @@ public class User {
 	}
 	
 	public boolean matchUserId(String inputUserId) {
-		// TODO Auto-generated method stub
 		if (inputUserId == null) {
 			return false;
 		}
@@ -81,7 +80,6 @@ public class User {
 	}
 	
 	public User update(User updateUser) {
-		// TODO Auto-generated method stub
 		if (!matchUserId(updateUser.userId)) {
 			throw new IllegalArgumentException();
 		}

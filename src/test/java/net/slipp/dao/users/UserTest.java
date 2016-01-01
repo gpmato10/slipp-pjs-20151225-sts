@@ -14,10 +14,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.convert.converter.ConditionalGenericConverter;
 
 import net.slipp.web.users.Authenticate;
-import sun.security.util.Password;
 
 public class UserTest {
 	private static final Logger logger = LoggerFactory.getLogger(UserTest.class);

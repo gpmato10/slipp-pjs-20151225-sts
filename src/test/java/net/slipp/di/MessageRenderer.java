@@ -1,7 +1,5 @@
 package net.slipp.di;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MessageRenderer {
 //di를 사용하는 방법
